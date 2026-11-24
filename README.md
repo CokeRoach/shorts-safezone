@@ -33,9 +33,11 @@ Is a caption at x 150, y 1250, 780 x 90 px safe on a 1080 x 1920 video?
 ```
 $ shorts-safezone box 150 1250 780 90
 YouTube Shorts   covered at the bottom edge
-TikTok           covered at the bottom edge
+TikTok           covered at the right and bottom edges
 Instagram Reels  covered at the bottom edge
 ```
+
+On TikTok the caption also runs under the like and comment buttons on the right.
 
 It exits with 1 when the box is covered anywhere, so it can guard a render script. Add `--json` for machine-readable output and `--size 720x1280` for other 9:16 sizes.
 
@@ -45,7 +47,7 @@ From Python:
 from shorts_safezone import Box, check_box
 
 check_box(Box.from_xywh(150, 1250, 780, 90))
-# {'youtube': ['bottom'], 'tiktok': ['bottom'], 'reels': ['bottom']}
+# {'youtube': ['bottom'], 'tiktok': ['right', 'bottom'], 'reels': ['bottom']}
 ```
 
 ## The zones

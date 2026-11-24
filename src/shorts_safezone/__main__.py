@@ -48,7 +48,8 @@ def cmd_box(args) -> int:
         print(json.dumps({k: {"safe": not v, "crossed": v} for k, v in result.items()}, indent=2))
     else:
         for key, crossed in result.items():
-            verdict = "safe" if not crossed else "covered at the " + " and ".join(crossed) + " edge"
+            verdict = ("safe" if not crossed else "covered at the " + " and ".join(crossed)
+                       + (" edges" if len(crossed) > 1 else " edge"))
             print(f"{ZONES[key].label:16} {verdict}")
     return 0 if not any(result.values()) else 1
 

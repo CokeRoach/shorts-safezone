@@ -106,6 +106,18 @@ def test_cli_box_exit_code(capsys):
     assert data["youtube"] == {"safe": False, "crossed": ["bottom"]}
 
 
+def test_readme_box_example_matches(capsys):
+    assert main(["box", "150", "1250", "780", "90"]) == 1
+    assert capsys.readouterr().out.splitlines() == [
+        "YouTube Shorts   covered at the bottom edge",
+        "TikTok           covered at the right and bottom edges",
+        "Instagram Reels  covered at the bottom edge",
+    ]
+    assert check_box(Box.from_xywh(150, 1250, 780, 90)) == {
+        "youtube": ["bottom"], "tiktok": ["right", "bottom"], "reels": ["bottom"]
+    }
+
+
 def test_cli_zones_json_has_sources(capsys):
     assert main(["zones", "--json"]) == 0
     data = json.loads(capsys.readouterr().out)
