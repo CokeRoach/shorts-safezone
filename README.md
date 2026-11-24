@@ -6,6 +6,8 @@ See what YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video: the l
 
 *A made-up frame. The title at the top and the caption near the bottom are both covered on every platform. TikTok's zone has a step where its buttons sit on the right.*
 
+**No install? Use the web version:** [cokeroach.github.io/shorts-safezone](https://cokeroach.github.io/shorts-safezone/). Drop a video or screenshot, pick a frame, and drag over your caption to check it. Your file stays in your browser.
+
 ## Install
 
 ```
