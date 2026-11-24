@@ -27,8 +27,8 @@
     --bg: #f7f9f8; --surface: #ebf0ee; --card: #ffffff; --ink: #06525c; --text: #13302f; --muted: #275259;
     --line: #d3dfdc; --line-strong: #a9bfbc; --action: #06525c; --action-ink: #f7f9f8;
     --zone: #e2463a; --ok: #13724a; --warn: #b4380a; --bezel: #0b2427;
-    --font-display: "Instrument Sans", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    --font-mono: "DM Mono", "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", ui-monospace, Consolas, monospace;
+    --font-display: "Instrument Sans", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", "Nirmala UI", "Noto Sans Devanagari", sans-serif;
+    --font-mono: "DM Mono", "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", "Nirmala UI", "Noto Sans Devanagari", ui-monospace, Consolas, monospace;
     --r-sm: 8px; --r-btn: 10px; --r-phone: 30px;
     --m-in: 150ms; --m-out: 120ms; --m-press: 90ms; --m-slide: 240ms;
     --m-ease: cubic-bezier(.2, .8, .2, 1); --m-ease-enter: cubic-bezier(.22, 1, .36, 1);
@@ -161,6 +161,9 @@
         <option value="fr">Français</option>
         <option value="ru">Русский</option>
         <option value="zh">中文</option>
+        <option value="hi">हिन्दी</option>
+        <option value="pt">Português</option>
+        <option value="id">Bahasa Indonesia</option>
       </select>
     </label>
   </div>
@@ -313,6 +316,51 @@ const I18N = {
     thPlatform: "平台", thArea: "1080 x 1920 上的安全区域", thSource: "来源", then: "；然后 ",
     veil: "松开即可检查此文件", badVideo: "此浏览器无法播放该视频。请尝试 mp4（H.264）或截图。", badImage: "此浏览器无法打开该图片文件。",
     platforms: "显示的平台", time: "视频时间", canvas: "{label} 安全区", lang: "语言",
+  },
+  hi: {
+    title: "शॉर्ट्स सेफ़ ज़ोन चेकर",
+    lead: "9:16 वीडियो पर YouTube Shorts, TikTok और Instagram Reels क्या ढकते हैं, यह उनके अपने टेम्पलेट से मापकर दिखाया गया है। वीडियो या स्क्रीनशॉट को पेज पर कहीं भी छोड़ें; फ़ाइल आपके ब्राउज़र से बाहर नहीं जाती।",
+    open: "वीडियो या इमेज खोलें", sample: "नमूना फ़्रेम", save: "PNG के रूप में सहेजें",
+    hint: "कैप्शन की जगह चिह्नित करने के लिए फ़्रेम पर ड्रैग करें, या वीडियो के पिक्सेल में लिखें:", width: "चौड़ाई", height: "ऊँचाई", clear: "बॉक्स हटाएँ",
+    idle: "जाँचने के लिए ड्रैग करें", safe: "सुरक्षित", covered: "ढका हुआ: ", top: "ऊपर", bottom: "नीचे", left: "बाएँ", right: "दाएँ", sep: ", ",
+    ratio: "यह फ़ाइल {w} x {h} है, 9:16 नहीं। ज़ोन को फ़िट करने के लिए खींचा गया है, इसलिए इन्हें अनुमानित मानें।",
+    aboutTitle: "ज़ोन कहाँ से आए हैं",
+    about1: "YouTube और TikTok के ज़ोन आधिकारिक टेम्पलेट से पिक्सेल-दर-पिक्सेल मापे गए हैं। Reels के लिए Meta की विज्ञापन गाइड के प्रतिशत इस्तेमाल किए गए हैं।",
+    about2: "तीनों प्लेटफ़ॉर्म ये ज़ोन विज्ञापनों के लिए प्रकाशित करते हैं। सामान्य वीडियो पर भी वही बटन दिखते हैं, इसलिए ये ज़ोन अच्छा अंदाज़ा देते हैं, पर गारंटी नहीं। लंबे कैप्शन के साथ TikTok का ज़ोन छोटा हो जाता है। 2026-11-24 को जाँचा गया।",
+    about3: "स्क्रिप्ट और रेंडर जाँच के लिए Python टूल भी है: {code}। सोर्स कोड और इश्यू {link} पर हैं।",
+    thPlatform: "प्लेटफ़ॉर्म", thArea: "1080 x 1920 पर खाली क्षेत्र", thSource: "स्रोत", then: "; फिर ",
+    veil: "इस फ़ाइल को जाँचने के लिए छोड़ें", badVideo: "यह ब्राउज़र इस वीडियो को नहीं चला सकता। mp4 (H.264) या स्क्रीनशॉट आज़माएँ।", badImage: "यह फ़ाइल ऐसी इमेज नहीं है जिसे यह ब्राउज़र खोल सके।",
+    platforms: "दिखाए जाने वाले प्लेटफ़ॉर्म", time: "वीडियो का समय", canvas: "आपके फ़्रेम पर {label} सेफ़ ज़ोन", lang: "भाषा",
+  },
+  pt: {
+    title: "Verificador de zona segura para Shorts",
+    lead: "O que o YouTube Shorts, o TikTok e o Instagram Reels cobrem em um vídeo 9:16, medido a partir dos modelos oficiais de cada plataforma. Solte um vídeo ou uma captura de tela em qualquer lugar da página; o arquivo fica no seu navegador.",
+    open: "Abrir vídeo ou imagem", sample: "Quadro de exemplo", save: "Salvar como PNG",
+    hint: "Arraste sobre um quadro para marcar a legenda ou digite a posição em pixels do vídeo:", width: "largura", height: "altura", clear: "Limpar caixa",
+    idle: "arraste para verificar", safe: "seguro", covered: "coberto: ", top: "em cima", bottom: "embaixo", left: "à esquerda", right: "à direita", sep: ", ",
+    ratio: "Este arquivo tem {w} x {h}, não 9:16. As zonas foram esticadas para caber, então considere-as aproximadas.",
+    aboutTitle: "De onde vêm as zonas",
+    about1: "As zonas do YouTube e do TikTok foram medidas pixel a pixel a partir dos modelos oficiais. O Reels usa as porcentagens do guia de anúncios da Meta.",
+    about2: "As três plataformas publicam essas zonas para anúncios. Vídeos orgânicos recebem os mesmos botões, então as zonas são uma boa referência, mas não uma garantia. A zona do TikTok diminui com legendas longas. Verificado em 2026-11-24.",
+    about3: "Também existe uma ferramenta em Python para scripts e verificação de renderizações: {code}. Código-fonte e issues no {link}.",
+    thPlatform: "Plataforma", thArea: "Área livre em 1080 x 1920", thSource: "Fonte", then: "; depois ",
+    veil: "Solte para verificar este arquivo", badVideo: "Este navegador não consegue reproduzir esse vídeo. Tente um mp4 (H.264) ou uma captura de tela.", badImage: "Esse arquivo não é uma imagem que este navegador consiga abrir.",
+    platforms: "Plataformas exibidas", time: "Tempo do vídeo", canvas: "Zona segura do {label} sobre o seu quadro", lang: "Idioma",
+  },
+  id: {
+    title: "Pemeriksa Zona Aman Shorts",
+    lead: "Bagian video 9:16 yang tertutup oleh YouTube Shorts, TikTok, dan Instagram Reels, diukur dari templat resmi masing-masing platform. Lepaskan video atau tangkapan layar di mana saja di halaman ini; file tetap berada di browser Anda.",
+    open: "Buka video atau gambar", sample: "Bingkai contoh", save: "Simpan sebagai PNG",
+    hint: "Seret di atas bingkai untuk menandai posisi teks, atau ketik dalam piksel video:", width: "lebar", height: "tinggi", clear: "Hapus kotak",
+    idle: "seret untuk memeriksa", safe: "aman", covered: "tertutup: ", top: "atas", bottom: "bawah", left: "kiri", right: "kanan", sep: ", ",
+    ratio: "File ini berukuran {w} x {h}, bukan 9:16. Zona direntangkan agar pas, jadi anggap sebagai perkiraan.",
+    aboutTitle: "Asal data zona",
+    about1: "Zona YouTube dan TikTok diukur piksel demi piksel dari templat resmi. Reels memakai persentase dari panduan iklan Meta.",
+    about2: "Ketiga platform menerbitkan zona ini untuk iklan. Video organik mendapat tombol yang sama, jadi zona ini panduan yang baik, tetapi bukan jaminan. Zona TikTok mengecil jika keterangannya panjang. Diperiksa 2026-11-24.",
+    about3: "Tersedia juga alat Python untuk skrip dan pemeriksaan render: {code}. Kode sumber dan isu ada di {link}.",
+    thPlatform: "Platform", thArea: "Area bebas pada 1080 x 1920", thSource: "Sumber", then: "; lalu ",
+    veil: "Lepaskan untuk memeriksa file ini", badVideo: "Browser ini tidak dapat memutar video tersebut. Coba mp4 (H.264) atau tangkapan layar.", badImage: "File itu bukan gambar yang dapat dibuka browser ini.",
+    platforms: "Platform yang ditampilkan", time: "Waktu video", canvas: "Zona aman {label} pada bingkai Anda", lang: "Bahasa",
   },
 };
 const LANGS = Object.keys(I18N);

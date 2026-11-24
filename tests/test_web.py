@@ -44,7 +44,7 @@ def test_every_language_has_every_string():
     html = PAGE.read_text(encoding="utf-8")
     block = html[html.index("const I18N = {"):html.index("const LANGS")]
     langs = re.findall(r"^  (\w\w): \{", block, re.M)
-    assert langs == ["en", "ko", "ja", "fr", "ru", "zh"]
+    assert langs == ["en", "ko", "ja", "fr", "ru", "zh", "hi", "pt", "id"]
     keys = {}
     for lang, body in re.findall(r"^  (\w\w): \{(.*?)^  \},", block, re.M | re.S):
         keys[lang] = set(re.findall(r"(?<![^\s,])([A-Za-z][A-Za-z0-9]*): \"", body))
