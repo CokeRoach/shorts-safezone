@@ -34,4 +34,21 @@ def test_web_page_zones_match_python():
 def test_web_page_loads_nothing_from_other_sites():
     html = PAGE.read_text(encoding="utf-8")
     assert not re.search(r"<script[^>]+src=", html)
-    assert not re.search(r"<link[^>]+stylesheet", html)
+    for href in re.findall(r'<link[^>]+href="([^"]+)"', html):
+        assert not href.startswith(("http:", "https:", "//")), href
+    fonts = (PAGE.parent / "fonts" / "fonts.css").read_text(encoding="utf-8")
+    assert "http" not in fonts
+
+
+def test_every_language_has_every_string():
+    html = PAGE.read_text(encoding="utf-8")
+    block = html[html.index("const I18N = {"):html.index("const LANGS")]
+    langs = re.findall(r"^  (\w\w): \{", block, re.M)
+    assert langs == ["en", "ko", "ja", "fr", "ru", "zh"]
+    keys = {}
+    for lang, body in re.findall(r"^  (\w\w): \{(.*?)^  \},", block, re.M | re.S):
+        keys[lang] = set(re.findall(r"(?<![^\s,])([A-Za-z][A-Za-z0-9]*): \"", body))
+    for lang in langs[1:]:
+        assert keys[lang] == keys["en"], (lang, keys["en"] ^ keys[lang])
+    options = re.findall(r'<option value="(\w+)">', html)
+    assert options == langs

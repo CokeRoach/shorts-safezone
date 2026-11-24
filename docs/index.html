@@ -5,118 +5,183 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shorts Safe Zone Checker</title>
 <meta name="description" content="Drop a 9:16 video or screenshot and see what YouTube Shorts, TikTok and Instagram Reels cover. Zones measured from the official templates. Nothing is uploaded.">
-<meta name="theme-color" content="#f6f5f2">
+<meta name="theme-color" content="#f7f9f8">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shorts Safe Zone Checker">
 <meta property="og:description" content="See what YouTube Shorts, TikTok and Instagram Reels cover on your 9:16 video. Zones measured from the official templates.">
 <meta property="og:url" content="https://cokeroach.github.io/shorts-safezone/">
 <meta property="og:image" content="https://cokeroach.github.io/shorts-safezone/example.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='7' y='1' width='18' height='30' rx='4' fill='%231c1b19'/%3E%3Crect x='9.5' y='3.5' width='13' height='25' rx='2' fill='%23e2463a'/%3E%3Crect x='10.5' y='8' width='9' height='14' fill='%23f6f5f2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='7' y='1' width='18' height='30' rx='4' fill='%2306525c'/%3E%3Crect x='9.5' y='3.5' width='13' height='25' rx='2' fill='%23e2463a'/%3E%3Crect x='10.5' y='8' width='9' height='14' fill='%23f7f9f8'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<script>document.documentElement.classList.add("m-enter");setTimeout(()=>document.documentElement.classList.add("m-enter-done"),1400)</script>
+<!--
+  Look dealt by taste-skill 2.5 (start.mjs deal --page software --trade saas):
+  palette "teal-on-paper", type "instrument" (Instrument Sans + DM Mono), radius soft.
+  Motion follows taste-skill's motion.md numbers, written here: hover 150ms in / 120ms out,
+  press 90ms, buttons step 1px up and press 1px down, underlines draw, the hero enters once.
+  Fonts are self-hosted (SIL OFL, licences in fonts/) so the page makes no third-party request.
+-->
 <style>
   :root {
-    --bg: #f6f5f2; --panel: #ffffff; --ink: #1c1b19; --muted: #4f4b45; --line: #dedad2;
-    --accent: #d93a2f; --ok: #17773f; --warn: #b4380a; --box: #f5c542; --bezel: #16161a;
+    --bg: #f7f9f8; --surface: #ebf0ee; --card: #ffffff; --ink: #06525c; --text: #13302f; --muted: #275259;
+    --line: #d3dfdc; --line-strong: #a9bfbc; --action: #06525c; --action-ink: #f7f9f8;
+    --zone: #e2463a; --ok: #13724a; --warn: #b4380a; --bezel: #0b2427;
+    --font-display: "Instrument Sans", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-mono: "DM Mono", "Apple SD Gothic Neo", "Malgun Gothic", "Hiragino Sans", "Yu Gothic UI", "PingFang SC", "Microsoft YaHei", ui-monospace, Consolas, monospace;
+    --r-sm: 8px; --r-btn: 10px; --r-phone: 30px;
+    --m-in: 150ms; --m-out: 120ms; --m-press: 90ms; --m-slide: 240ms;
+    --m-ease: cubic-bezier(.2, .8, .2, 1); --m-ease-enter: cubic-bezier(.22, 1, .36, 1);
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #141413; --panel: #1d1c1a; --ink: #f1efea; --muted: #c9c4bb; --line: #34322e; --ok: #5fd08e; --warn: #ff9d5c; --bezel: #000; }
+    :root { --bg: #0c1c1e; --surface: #12292c; --card: #102528; --ink: #9fe0da; --text: #e4efed; --muted: #a9c4c1;
+      --line: #22403f; --line-strong: #3a5e5c; --action: #9fe0da; --action-ink: #06292c; --ok: #5fd08e; --warn: #ff9d5c; --bezel: #000; }
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
-  main { max-width: 1120px; margin: 0 auto; padding: 28px 16px 64px; }
-  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  code { font: 14px ui-monospace, Consolas, monospace; background: var(--panel); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--font-display); }
+  main { max-width: 1120px; margin: 0 auto; padding: 20px 16px 72px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  code { font: 14px var(--font-mono); background: var(--card); border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
 
-  .top { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: end; justify-content: space-between; margin-bottom: 20px; }
-  .top h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 8px; }
-  .top p { margin: 0; color: var(--muted); max-width: 600px; }
-  .open { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 10px; border: 0; background: var(--ink); color: var(--bg); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; transition: transform .12s; }
-  .open:hover { transform: translateY(-1px); }
-  .open:active { transform: translateY(1px); }
-  .open small { font-weight: 400; opacity: .7; }
+  /* links: the underline draws in on hover (motion.md) */
+  .link { color: var(--ink); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: background-size var(--m-out) var(--m-ease); padding-bottom: 1px; }
+  .link:hover, .link:focus-visible { background-size: 100% 2px; transition-duration: var(--m-in); }
+  .link--draw { background-size: 0 1px; }
+  .link--draw:hover, .link--draw:focus-visible { background-size: 100% 1px; }
 
-  .bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 20px; }
-  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); }
-  .seg button { min-height: 44px; padding: 0 16px; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 15px; cursor: pointer; }
-  .seg button + button { border-left: 1px solid var(--line); }
-  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-  .seg button:hover:not([aria-pressed="true"]) { color: var(--ink); background: var(--bg); }
-  .seg button[aria-pressed="true"]:hover { opacity: .86; }
-  .source-name { color: var(--muted); font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px; }
-  .ghost { min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font: inherit; font-size: 15px; cursor: pointer; }
-  .ghost:hover { border-color: var(--muted); }
-  .ghost:active { transform: translateY(1px); }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; margin-bottom: 18px; }
+  .mark { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; min-height: 44px; }
+  .mark svg { width: 18px; height: 30px; transition: transform var(--m-out) var(--m-ease); }
+  .mark:hover svg { transform: translateY(-1px); transition-duration: var(--m-in); }
+  .mark:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .lang { position: relative; display: inline-flex; align-items: center; }
+  .lang select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 38px 0 14px; border-radius: var(--r-btn); border: 1px solid var(--line-strong); background: var(--card); color: var(--text); font: 15px var(--font-display); cursor: pointer; transition: border-color var(--m-out) var(--m-ease); }
+  .lang select:hover { border-color: var(--ink); transition-duration: var(--m-in); }
+  .lang::after { content: ""; position: absolute; right: 15px; top: 50%; width: 7px; height: 7px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+
+  .hero { display: flex; flex-wrap: wrap; gap: 18px 40px; align-items: end; justify-content: space-between; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.06; font-weight: 500; letter-spacing: -0.034em; font-stretch: 96%; color: var(--ink); margin: 0 0 12px; max-width: 14em; }
+  .hero p { margin: 0; color: var(--muted); max-width: 560px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: var(--r-btn); font: 600 16px var(--font-display); cursor: pointer; white-space: nowrap; border: 1px solid transparent;
+    transition: transform var(--m-out) var(--m-ease), background-color var(--m-out) var(--m-ease), border-color var(--m-out) var(--m-ease), color var(--m-out) var(--m-ease); }
+  .btn:hover { transform: translateY(-1px); transition-duration: var(--m-in); }
+  .btn:active { transform: translateY(1px); transition-duration: var(--m-press); }
+  .btn--primary { background: var(--action); color: var(--action-ink); }
+  .btn--primary:hover { background: color-mix(in srgb, var(--action) 88%, var(--text)); }
+  .btn--primary small { font-weight: 400; opacity: .75; font-family: var(--font-mono); font-size: 13px; }
+  .btn--secondary { background: var(--card); color: var(--text); border-color: var(--line-strong); min-height: 44px; font-weight: 500; font-size: 15px; padding: 0 16px; }
+  .btn--secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+  .seg { position: relative; display: inline-flex; padding: 3px; border-radius: calc(var(--r-btn) + 3px); background: var(--surface); border: 1px solid var(--line); }
+  .seg button { position: relative; min-height: 44px; padding: 0 16px; border: 0; border-radius: var(--r-btn); background: transparent; color: var(--muted); font: 500 15px var(--font-display); cursor: pointer;
+    transition: background-color var(--m-out) var(--m-ease), color var(--m-out) var(--m-ease), transform var(--m-out) var(--m-ease); }
+  .seg button:hover { color: var(--ink); transition-duration: var(--m-in); }
+  .seg button:active { transform: translateY(1px); transition-duration: var(--m-press); }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(6, 82, 92, .14), 0 0 0 1px var(--line); }
+  .seg button[aria-pressed="true"]:hover { box-shadow: 0 2px 6px rgba(6, 82, 92, .2), 0 0 0 1px var(--line-strong); }
+  .source-name { color: var(--muted); font: 14px var(--font-mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 280px; }
 
   .time { display: none; align-items: center; gap: 12px; margin: 0 0 18px; }
   .time.on { display: flex; }
-  .time input { flex: 1; min-width: 0; height: 44px; accent-color: var(--accent); }
-  .time output { font-variant-numeric: tabular-nums; font-size: 15px; color: var(--muted); min-width: 64px; text-align: right; }
+  .time input { flex: 1; min-width: 0; height: 44px; accent-color: var(--ink); }
+  .time output { font: 14px var(--font-mono); color: var(--muted); min-width: 64px; text-align: right; }
   .warn { color: var(--warn); font-size: 15px; margin: 0 0 14px; }
 
   .stage { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .stage figure { margin: 0; }
-  .stage figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 0 4px 10px; font-weight: 600; }
-  .verdict { font-weight: 500; font-size: 14px; padding: 2px 10px; border-radius: 999px; border: 1px solid currentColor; }
+  .stage figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 0 4px 10px; font-weight: 600; color: var(--text); }
+  .verdict { font: 500 13px var(--font-mono); padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
   .verdict.safe { color: var(--ok); }
   .verdict.covered { color: var(--warn); }
   .verdict.idle { color: var(--muted); border-color: transparent; padding-right: 0; }
-  .phone { background: var(--bezel); border-radius: 30px; padding: 9px; box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 18px 40px -24px rgba(0,0,0,.45); }
+  .phone { background: var(--bezel); border-radius: var(--r-phone); padding: 9px; box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 22px 44px -26px rgba(6, 40, 44, .55); }
   .phone canvas { display: block; width: 100%; height: auto; border-radius: 22px; touch-action: none; cursor: crosshair; background: #000; }
 
-  .check { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 22px; color: var(--muted); font-size: 15px; }
+  .check { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 24px; color: var(--muted); font-size: 15px; }
   .check label { display: inline-flex; align-items: center; gap: 6px; }
-  .check input { width: 84px; min-height: 44px; font: inherit; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+  .check input { width: 88px; min-height: 44px; font: 15px var(--font-mono); padding: 0 10px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--card); color: var(--text); transition: border-color var(--m-out) var(--m-ease); }
+  .check input:hover { border-color: var(--ink); transition-duration: var(--m-in); }
 
-  .drop-veil { position: fixed; inset: 0; display: none; place-items: center; background: rgba(20, 20, 19, .72); color: #fff; font-size: 24px; font-weight: 600; z-index: 5; pointer-events: none; }
+  .drop-veil { position: fixed; inset: 0; display: none; place-items: center; background: rgba(6, 40, 44, .78); color: #fff; font-size: 24px; font-weight: 600; z-index: 5; pointer-events: none; }
   body.dragging .drop-veil { display: grid; }
 
-  .about { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; border-top: 1px solid var(--line); padding-top: 28px; }
-  .about h2 { font-size: 20px; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .about { margin-top: 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 36px; border-top: 1px solid var(--line); padding-top: 30px; }
+  .about h2 { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
   .about p { margin: 0 0 12px; color: var(--muted); }
   table { border-collapse: collapse; width: 100%; font-size: 15px; }
   th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-weight: 600; }
-  td a { display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0; }
-  .nums { font-variant-numeric: tabular-nums; }
+  th { font-weight: 600; color: var(--text); }
+  td.nums { font: 14px var(--font-mono); color: var(--text); }
+  td .link { display: inline-block; line-height: 44px; margin: -12px 0; background-position: 0 70%; }
+
+  /* the hero enters once on load: the title, then the line under it, then the button, then the phones settle */
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes settle { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: none; } }
+  html.m-enter:not(.m-enter-done) .hero[data-enter] h1 { animation: rise 600ms var(--m-ease-enter) both; }
+  html.m-enter:not(.m-enter-done) .hero[data-enter] p { animation: rise 600ms 140ms var(--m-ease-enter) both; }
+  html.m-enter:not(.m-enter-done) .hero[data-enter] .btn { animation: rise 600ms 260ms var(--m-ease-enter) both; }
+  html.m-enter:not(.m-enter-done) .stage { animation: settle 700ms 380ms var(--m-ease-enter) both; }
 
   @media (max-width: 820px) {
     .stage { grid-template-columns: minmax(0, 1fr); max-width: 300px; margin: 0 auto; }
+    .about { grid-template-columns: minmax(0, 1fr); }
+    .hero .btn { width: 100%; white-space: normal; text-align: center; }
+    .hero > div { min-width: 0; }
+    .seg { width: 100%; }
+    .seg button { flex: 1; padding: 0 8px; }
+    .bar .btn--secondary { flex: 1; }
     .check { display: grid; grid-template-columns: 1fr 1fr; }
     .check > span { grid-column: 1 / -1; }
     .check label { justify-content: space-between; }
     .check input { width: 100%; max-width: 120px; }
-    .about { grid-template-columns: minmax(0, 1fr); }
-    .open { width: 100%; justify-content: center; }
-    .seg { width: 100%; }
-    .seg button { flex: 1; padding: 0 8px; }
-    .bar .ghost { flex: 1; }
   }
-  @media (prefers-reduced-motion: reduce) { .open, .ghost { transition: none; } }
+  @media (max-width: 380px) { .hero .btn small { display: none; } .seg button { font-size: 14px; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
-<div class="drop-veil" aria-hidden="true">Drop to check this file</div>
+<div class="drop-veil" aria-hidden="true" data-i18n="veil">Drop to check this file</div>
 <main>
-  <header class="top">
+  <div class="topbar">
+    <a class="mark" href="https://github.com/CokeRoach/shorts-safezone">
+      <svg viewBox="0 0 18 30" aria-hidden="true"><rect x="0.5" y="0.5" width="17" height="29" rx="4" fill="none" stroke="currentColor"/><rect x="3" y="6" width="12" height="14" rx="1" fill="currentColor" opacity=".25"/></svg>
+      shorts-safezone
+    </a>
+    <label class="lang">
+      <span hidden data-i18n="lang">Language</span>
+      <select id="lang" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="ja">日本語</option>
+        <option value="fr">Français</option>
+        <option value="ru">Русский</option>
+        <option value="zh">中文</option>
+      </select>
+    </label>
+  </div>
+
+  <header class="hero" data-enter>
     <div>
-      <h1>Shorts Safe Zone Checker</h1>
-      <p>What YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video, measured from their own templates. Drop a video or screenshot anywhere on the page; it stays in your browser.</p>
+      <h1 data-i18n="title">Shorts Safe Zone Checker</h1>
+      <p data-i18n="lead">What YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video, measured from their own templates. Drop a video or screenshot anywhere on the page; it stays in your browser.</p>
     </div>
-    <button class="open" id="open" type="button">Open a video or image <small>mp4, mov, png, jpg</small></button>
+    <button class="btn btn--primary" id="open" type="button"><span data-i18n="open">Open a video or image</span> <small>mp4 · mov · png · jpg</small></button>
     <input type="file" id="file" accept="video/*,image/*" hidden>
   </header>
 
   <div class="bar">
-    <div class="seg" role="group" aria-label="Platforms to show">
+    <div class="seg" role="group" id="seg" aria-label="Platforms to show">
       <button type="button" data-platform="youtube" aria-pressed="true">Shorts</button>
       <button type="button" data-platform="tiktok" aria-pressed="true">TikTok</button>
       <button type="button" data-platform="reels" aria-pressed="true">Reels</button>
     </div>
-    <span class="source-name" id="source-name">Sample frame</span>
-    <button class="ghost" id="save" type="button">Save as PNG</button>
+    <span class="source-name" id="source-name" data-i18n="sample">Sample frame</span>
+    <button class="btn btn--secondary" id="save" type="button" data-i18n="save">Save as PNG</button>
   </div>
 
   <div class="time" id="time">
@@ -128,22 +193,22 @@
   <div class="stage" id="stage"></div>
 
   <div class="check">
-    <span>Drag on a frame to mark your caption, or type it in video pixels:</span>
+    <span data-i18n="hint">Drag on a frame to mark your caption, or type it in video pixels:</span>
     <label>x <input type="number" id="bx" inputmode="numeric"></label>
     <label>y <input type="number" id="by" inputmode="numeric"></label>
-    <label>width <input type="number" id="bw" inputmode="numeric"></label>
-    <label>height <input type="number" id="bh" inputmode="numeric"></label>
-    <button class="ghost" id="clear" type="button">Clear box</button>
+    <label><span data-i18n="width">width</span> <input type="number" id="bw" inputmode="numeric"></label>
+    <label><span data-i18n="height">height</span> <input type="number" id="bh" inputmode="numeric"></label>
+    <button class="btn btn--secondary" id="clear" type="button" data-i18n="clear">Clear box</button>
   </div>
 
   <section class="about">
     <div>
-      <h2>Where the zones come from</h2>
-      <p>YouTube and TikTok zones are measured pixel by pixel from the official templates. Reels uses the percentages in Meta's ad guide.</p>
-      <p>All three platforms publish these for ads. Organic videos get the same buttons, so the zones are a good guide but not a promise. TikTok's zone shrinks with a long caption. Checked 2026-11-24.</p>
-      <p>Also a Python tool for scripts and render checks: <code>pip install shorts-safezone</code>. Source and issues on <a href="https://github.com/CokeRoach/shorts-safezone">GitHub</a>.</p>
+      <h2 data-i18n="aboutTitle">Where the zones come from</h2>
+      <p data-i18n="about1">YouTube and TikTok zones are measured pixel by pixel from the official templates. Reels uses the percentages in Meta's ad guide.</p>
+      <p data-i18n="about2">All three platforms publish these for ads. Organic videos get the same buttons, so the zones are a good guide but not a promise. TikTok's zone shrinks with a long caption. Checked 2026-11-24.</p>
+      <p id="about3"></p>
     </div>
-    <table id="sources"><thead><tr><th>Platform</th><th>Clear area on 1080 x 1920</th><th>Source</th></tr></thead><tbody></tbody></table>
+    <table id="sources"><thead><tr><th data-i18n="thPlatform">Platform</th><th data-i18n="thArea">Clear area on 1080 x 1920</th><th data-i18n="thSource">Source</th></tr></thead><tbody></tbody></table>
   </section>
 </main>
 
@@ -156,11 +221,144 @@
 "use strict";
 const ZONES = JSON.parse(document.getElementById("zone-data").textContent);
 const $ = (id) => document.getElementById(id);
-const state = { src: null, w: 0, h: 0, box: null, url: null, drag: null };
+const state = { src: null, w: 0, h: 0, box: null, url: null, drag: null, named: null };
+
+const I18N = {
+  en: {
+    title: "Shorts Safe Zone Checker",
+    lead: "What YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video, measured from their own templates. Drop a video or screenshot anywhere on the page; it stays in your browser.",
+    open: "Open a video or image", sample: "Sample frame", save: "Save as PNG",
+    hint: "Drag on a frame to mark your caption, or type it in video pixels:", width: "width", height: "height", clear: "Clear box",
+    idle: "drag to check", safe: "safe", covered: "covered: ", top: "top", bottom: "bottom", left: "left", right: "right", sep: ", ",
+    ratio: "This file is {w} x {h}, not 9:16. The zones are stretched to fit, so treat them as rough.",
+    aboutTitle: "Where the zones come from",
+    about1: "YouTube and TikTok zones are measured pixel by pixel from the official templates. Reels uses the percentages in Meta's ad guide.",
+    about2: "All three platforms publish these for ads. Organic videos get the same buttons, so the zones are a good guide but not a promise. TikTok's zone shrinks with a long caption. Checked 2026-11-24.",
+    about3: "Also a Python tool for scripts and render checks: {code}. Source and issues on {link}.",
+    thPlatform: "Platform", thArea: "Clear area on 1080 x 1920", thSource: "Source", then: "; then ",
+    veil: "Drop to check this file", badVideo: "This browser cannot play that video. Try an mp4 (H.264) or a screenshot.", badImage: "That file is not an image this browser can open.",
+    platforms: "Platforms to show", time: "Video time", canvas: "{label} safe zone over your frame", lang: "Language",
+  },
+  ko: {
+    title: "쇼츠 안전 영역 검사기",
+    lead: "유튜브 쇼츠, 틱톡, 인스타그램 릴스가 9:16 영상에서 가리는 곳을 각 플랫폼의 공식 템플릿으로 측정해 보여 줍니다. 영상이나 스크린샷을 페이지 아무 곳에나 끌어다 놓으세요. 파일은 브라우저 밖으로 나가지 않습니다.",
+    open: "영상이나 이미지 열기", sample: "예시 화면", save: "PNG로 저장",
+    hint: "화면 위를 드래그해 자막 위치를 표시하거나, 영상 픽셀 값으로 입력하세요:", width: "너비", height: "높이", clear: "상자 지우기",
+    idle: "드래그해서 확인", safe: "안전", covered: "가려짐: ", top: "위", bottom: "아래", left: "왼쪽", right: "오른쪽", sep: ", ",
+    ratio: "이 파일은 {w} x {h}로 9:16이 아닙니다. 영역을 늘려서 맞췄으니 대략적으로만 참고하세요.",
+    aboutTitle: "영역 수치의 출처",
+    about1: "유튜브와 틱톡 영역은 공식 템플릿을 픽셀 단위로 측정했습니다. 릴스는 메타 광고 가이드에 나온 비율을 따릅니다.",
+    about2: "세 플랫폼 모두 광고용으로 공개한 수치입니다. 일반 영상에도 같은 버튼이 올라가므로 좋은 기준이 되지만, 보장되는 값은 아닙니다. 틱톡 영역은 캡션이 길면 줄어듭니다. 2026-11-24 확인.",
+    about3: "스크립트나 렌더링 검사에 쓰는 파이썬 도구도 있습니다: {code}. 소스 코드와 이슈는 {link}에 있습니다.",
+    thPlatform: "플랫폼", thArea: "1080 x 1920 기준 안전 영역", thSource: "출처", then: ", 이어서 ",
+    veil: "놓으면 이 파일을 확인합니다", badVideo: "이 브라우저에서 재생할 수 없는 영상입니다. mp4(H.264) 파일이나 스크린샷을 사용해 보세요.", badImage: "이 브라우저에서 열 수 있는 이미지 파일이 아닙니다.",
+    platforms: "표시할 플랫폼", time: "영상 시간", canvas: "{label} 안전 영역 표시", lang: "언어",
+  },
+  ja: {
+    title: "ショート動画 セーフゾーンチェッカー",
+    lead: "YouTube ショート、TikTok、Instagram リールが 9:16 の動画のどこを覆うかを、各プラットフォームの公式テンプレートから測定して表示します。動画やスクリーンショットをページのどこにでもドロップしてください。ファイルはブラウザの外に送信されません。",
+    open: "動画または画像を開く", sample: "サンプル画面", save: "PNG で保存",
+    hint: "画面上をドラッグして字幕の位置を指定するか、動画のピクセル値で入力してください:", width: "幅", height: "高さ", clear: "枠を消去",
+    idle: "ドラッグして確認", safe: "安全", covered: "隠れる: ", top: "上", bottom: "下", left: "左", right: "右", sep: "・",
+    ratio: "このファイルは {w} x {h} で、9:16 ではありません。領域を引き伸ばして合わせているため、目安としてご覧ください。",
+    aboutTitle: "数値の出典",
+    about1: "YouTube と TikTok の領域は、公式テンプレートをピクセル単位で測定しました。リールは Meta の広告ガイドに記載された割合に基づいています。",
+    about2: "3 つのプラットフォームはいずれも広告向けにこの領域を公開しています。通常の動画にも同じボタンが表示されるため目安になりますが、保証はされません。TikTok の領域はキャプションが長いと狭くなります。2026-11-24 確認。",
+    about3: "スクリプトやレンダリングの確認には Python ツールもあります: {code}。ソースコードとイシューは {link} で公開しています。",
+    thPlatform: "プラットフォーム", thArea: "1080 x 1920 での安全領域", thSource: "出典", then: "、続いて ",
+    veil: "ドロップしてこのファイルを確認", badVideo: "このブラウザではこの動画を再生できません。mp4(H.264)かスクリーンショットをお試しください。", badImage: "このブラウザで開ける画像ファイルではありません。",
+    platforms: "表示するプラットフォーム", time: "動画の時間", canvas: "{label} のセーフゾーン", lang: "言語",
+  },
+  fr: {
+    title: "Vérificateur de zones sûres pour Shorts",
+    lead: "Ce que YouTube Shorts, TikTok et Instagram Reels masquent sur une vidéo 9:16, mesuré à partir de leurs propres modèles. Déposez une vidéo ou une capture d'écran n'importe où sur la page ; le fichier reste dans votre navigateur.",
+    open: "Ouvrir une vidéo ou une image", sample: "Image d'exemple", save: "Enregistrer en PNG",
+    hint: "Faites glisser sur une image pour marquer votre sous-titre, ou saisissez-le en pixels de la vidéo :", width: "largeur", height: "hauteur", clear: "Effacer le cadre",
+    idle: "glissez pour vérifier", safe: "sûr", covered: "masqué : ", top: "haut", bottom: "bas", left: "gauche", right: "droite", sep: ", ",
+    ratio: "Ce fichier fait {w} x {h}, pas 9:16. Les zones sont étirées pour s'adapter : considérez-les comme approximatives.",
+    aboutTitle: "D'où viennent les zones",
+    about1: "Les zones YouTube et TikTok sont mesurées pixel par pixel à partir des modèles officiels. Reels utilise les pourcentages du guide publicitaire de Meta.",
+    about2: "Les trois plateformes les publient pour la publicité. Les vidéos organiques affichent les mêmes boutons : les zones sont donc un bon repère, mais pas une garantie. La zone de TikTok rétrécit avec une légende longue. Vérifié le 2026-11-24.",
+    about3: "Existe aussi en outil Python pour les scripts et la vérification des rendus : {code}. Code source et tickets sur {link}.",
+    thPlatform: "Plateforme", thArea: "Zone libre en 1080 x 1920", thSource: "Source", then: " ; puis ",
+    veil: "Déposez pour vérifier ce fichier", badVideo: "Ce navigateur ne peut pas lire cette vidéo. Essayez un mp4 (H.264) ou une capture d'écran.", badImage: "Ce fichier n'est pas une image que ce navigateur peut ouvrir.",
+    platforms: "Plateformes à afficher", time: "Position dans la vidéo", canvas: "Zone sûre {label} sur votre image", lang: "Langue",
+  },
+  ru: {
+    title: "Проверка безопасных зон для Shorts",
+    lead: "Что закрывают YouTube Shorts, TikTok и Instagram Reels на видео 9:16 — по замерам их собственных шаблонов. Перетащите видео или скриншот в любое место страницы; файл остаётся в вашем браузере.",
+    open: "Открыть видео или изображение", sample: "Пример кадра", save: "Сохранить в PNG",
+    hint: "Выделите на кадре область субтитров или введите её в пикселях видео:", width: "ширина", height: "высота", clear: "Убрать рамку",
+    idle: "выделите для проверки", safe: "безопасно", covered: "закрыто: ", top: "сверху", bottom: "снизу", left: "слева", right: "справа", sep: ", ",
+    ratio: "Размер файла {w} x {h}, это не 9:16. Зоны растянуты под размер, поэтому считайте их приблизительными.",
+    aboutTitle: "Откуда взяты зоны",
+    about1: "Зоны YouTube и TikTok измерены попиксельно по официальным шаблонам. Для Reels использованы проценты из рекламного руководства Meta.",
+    about2: "Все три платформы публикуют эти зоны для рекламы. В обычных видео те же кнопки, поэтому зоны — хороший ориентир, но не гарантия. Зона TikTok уменьшается при длинной подписи. Проверено 2026-11-24.",
+    about3: "Есть и инструмент на Python для скриптов и проверки рендеров: {code}. Исходный код и задачи — на {link}.",
+    thPlatform: "Платформа", thArea: "Свободная область на 1080 x 1920", thSource: "Источник", then: "; затем ",
+    veil: "Отпустите, чтобы проверить файл", badVideo: "Этот браузер не может воспроизвести видео. Попробуйте mp4 (H.264) или скриншот.", badImage: "Этот файл — не изображение, которое может открыть браузер.",
+    platforms: "Показываемые платформы", time: "Время в видео", canvas: "Безопасная зона {label} на вашем кадре", lang: "Язык",
+  },
+  zh: {
+    title: "短视频安全区检查器",
+    lead: "测量 YouTube Shorts、TikTok 和 Instagram Reels 在 9:16 视频上会遮挡的区域，数据来自各平台的官方模板。把视频或截图拖到页面任意位置即可，文件不会离开你的浏览器。",
+    open: "打开视频或图片", sample: "示例画面", save: "保存为 PNG",
+    hint: "在画面上拖动以标出字幕位置，或按视频像素输入：", width: "宽", height: "高", clear: "清除框",
+    idle: "拖动以检查", safe: "安全", covered: "被遮挡：", top: "上", bottom: "下", left: "左", right: "右", sep: "、",
+    ratio: "此文件为 {w} x {h}，不是 9:16。安全区已拉伸适配，仅供参考。",
+    aboutTitle: "安全区数据来源",
+    about1: "YouTube 和 TikTok 的安全区按官方模板逐像素测量。Reels 采用 Meta 广告指南中的百分比。",
+    about2: "三个平台都是为广告公布这些数据的。普通视频也会显示相同的按钮，因此可作为可靠参考，但并非保证。TikTok 的安全区会随文案变长而缩小。核对日期 2026-11-24。",
+    about3: "也有用于脚本和渲染检查的 Python 工具：{code}。源代码和问题反馈见 {link}。",
+    thPlatform: "平台", thArea: "1080 x 1920 上的安全区域", thSource: "来源", then: "；然后 ",
+    veil: "松开即可检查此文件", badVideo: "此浏览器无法播放该视频。请尝试 mp4（H.264）或截图。", badImage: "此浏览器无法打开该图片文件。",
+    platforms: "显示的平台", time: "视频时间", canvas: "{label} 安全区", lang: "语言",
+  },
+};
+const LANGS = Object.keys(I18N);
+let lang = "en";
+const t = (key, vars = {}) => (I18N[lang][key] ?? I18N.en[key]).replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
+
+function pickLang() {
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  if (LANGS.includes(fromUrl)) return fromUrl;
+  try { const saved = localStorage.getItem("ssz-lang"); if (LANGS.includes(saved)) return saved; } catch { /* storage blocked */ }
+  for (const l of navigator.languages || [navigator.language || "en"]) {
+    const base = String(l).slice(0, 2).toLowerCase();
+    if (LANGS.includes(base)) return base;
+  }
+  return "en";
+}
+
+function applyLang(next) {
+  lang = next;
+  document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
+  $("lang").value = lang;
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  if (!state.named) $("source-name").textContent = t("sample");
+  document.title = t("title");
+  $("lang").setAttribute("aria-label", t("lang"));
+  $("seg").setAttribute("aria-label", t("platforms"));
+  $("seek").setAttribute("aria-label", t("time"));
+  const about3 = $("about3");
+  about3.textContent = "";
+  const [before, rest] = (I18N[lang].about3 || I18N.en.about3).split("{code}");
+  const [middle, after] = rest.split("{link}");
+  const code = document.createElement("code"); code.textContent = "pip install shorts-safezone";
+  const link = document.createElement("a"); link.className = "link"; link.href = "https://github.com/CokeRoach/shorts-safezone"; link.textContent = "GitHub";
+  about3.append(before, code, middle, link, after);
+  fillSources();
+  render();
+}
+
+$("lang").addEventListener("change", (e) => {
+  try { localStorage.setItem("ssz-lang", e.target.value); } catch { /* storage blocked */ }
+  applyLang(e.target.value);
+});
 
 function bandsFor(key, w, h) {
   const z = ZONES[key], sx = w / z.width, sy = h / z.height;
-  return z.bands.map(([t, b, l, r]) => [t * sy, b * sy, l * sx, r * sx]);
+  return z.bands.map(([tp, b, l, r]) => [tp * sy, b * sy, l * sx, r * sx]);
 }
 
 // Same rule as edges_crossed() in zones.py.
@@ -168,8 +366,8 @@ function edgesCrossed(box, key, w, h) {
   const bands = bandsFor(key, w, h), crossed = new Set();
   if (box.top < bands[0][0]) crossed.add("top");
   if (box.bottom > bands[bands.length - 1][1]) crossed.add("bottom");
-  for (const [t, b, l, r] of bands) {
-    if (box.bottom <= t || box.top >= b) continue;
+  for (const [tp, b, l, r] of bands) {
+    if (box.bottom <= tp || box.top >= b) continue;
     if (box.left < l) crossed.add("left");
     if (box.right > r) crossed.add("right");
   }
@@ -178,7 +376,7 @@ function edgesCrossed(box, key, w, h) {
 
 function outline(bands) {
   const right = [], left = [];
-  for (const [t, b, l, r] of bands) { right.push([r, t], [r, b]); left.unshift([l, b], [l, t]); }
+  for (const [tp, b, l, r] of bands) { right.push([r, tp], [r, b]); left.unshift([l, b], [l, tp]); }
   return right.concat(left);
 }
 
@@ -200,8 +398,8 @@ function drawPanel(ctx, key, w, h, scale) {
   const bands = bandsFor(key, w, h);
   ctx.beginPath();
   ctx.rect(0, 0, w, h);
-  for (const [t, b, l, r] of bands) ctx.rect(l, t, r - l, b - t);
-  ctx.fillStyle = "rgba(226, 52, 40, 0.5)";
+  for (const [tp, b, l, r] of bands) ctx.rect(l, tp, r - l, b - tp);
+  ctx.fillStyle = "rgba(226, 70, 58, 0.5)";
   ctx.fill("evenodd");
   ctx.beginPath();
   outline(bands).forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
@@ -220,10 +418,10 @@ function drawPanel(ctx, key, w, h, scale) {
 }
 
 function setVerdict(el, key) {
-  if (!state.box) { el.className = "verdict idle"; el.textContent = "drag to check"; return; }
+  if (!state.box) { el.className = "verdict idle"; el.textContent = t("idle"); return; }
   const crossed = edgesCrossed(state.box, key, state.w, state.h);
   el.className = "verdict " + (crossed.length ? "covered" : "safe");
-  el.textContent = crossed.length ? "covered: " + crossed.join(", ") : "safe";
+  el.textContent = crossed.length ? t("covered") + crossed.map((e) => t(e)).join(t("sep")) : t("safe");
 }
 
 function render() {
@@ -232,7 +430,7 @@ function render() {
   if (!state.src) return;
   const ratioOk = Math.abs(state.w / state.h - 9 / 16) < 0.01;
   $("ratio").hidden = ratioOk;
-  $("ratio").textContent = ratioOk ? "" : `This file is ${state.w} x ${state.h}, not 9:16. The zones are stretched to fit, so treat them as rough.`;
+  $("ratio").textContent = ratioOk ? "" : t("ratio", { w: state.w, h: state.h });
   for (const key of platforms()) {
     const fig = document.createElement("figure");
     fig.dataset.platform = key;
@@ -249,7 +447,7 @@ function render() {
     canvas.width = Math.round(state.w * scale);
     canvas.height = Math.round(state.h * scale);
     canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label", ZONES[key].label + " safe zone over your frame");
+    canvas.setAttribute("aria-label", t("canvas", { label: ZONES[key].label }));
     drawPanel(canvas.getContext("2d"), key, state.w, state.h, scale);
     attachDrag(canvas);
     phone.append(canvas);
@@ -305,8 +503,8 @@ function syncInputs() {
 $("clear").addEventListener("click", () => { state.box = null; redraw(); });
 
 function useSource(src, w, h, name) {
-  state.src = src; state.w = w; state.h = h;
-  $("source-name").textContent = name;
+  state.src = src; state.w = w; state.h = h; state.named = name;
+  $("source-name").textContent = name || t("sample");
   render();
 }
 
@@ -324,19 +522,19 @@ function openFile(file) {
       useSource(v, v.videoWidth, v.videoHeight, file.name);
     }, { once: true });
     v.addEventListener("seeked", redraw);
-    v.addEventListener("error", () => alert("This browser cannot play that video. Try an mp4 (H.264) or a screenshot."));
+    v.addEventListener("error", () => alert(t("badVideo")));
   } else {
     const img = new Image();
     img.onload = () => { $("time").classList.remove("on"); useSource(img, img.naturalWidth, img.naturalHeight, file.name); };
-    img.onerror = () => alert("That file is not an image this browser can open.");
+    img.onerror = () => alert(t("badImage"));
     img.src = state.url;
   }
 }
 
 $("seek").addEventListener("input", (e) => {
-  const t = parseFloat(e.target.value);
-  $("clock").textContent = t.toFixed(2) + " s";
-  if (state.src instanceof HTMLVideoElement) state.src.currentTime = t;
+  const s = parseFloat(e.target.value);
+  $("clock").textContent = s.toFixed(2) + " s";
+  if (state.src instanceof HTMLVideoElement) state.src.currentTime = s;
 });
 $("open").addEventListener("click", () => $("file").click());
 $("file").addEventListener("change", (e) => openFile(e.target.files[0]));
@@ -354,12 +552,12 @@ function sampleFrame() {
   const c = document.createElement("canvas"); c.width = 1080; c.height = 1920;
   const g = c.getContext("2d");
   const grad = g.createLinearGradient(0, 0, 0, 1920);
-  grad.addColorStop(0, "#2a3f70"); grad.addColorStop(1, "#6a4a52");
+  grad.addColorStop(0, "#1d4a52"); grad.addColorStop(1, "#5d4a4f");
   g.fillStyle = grad; g.fillRect(0, 0, 1080, 1920);
   g.fillStyle = "#ebbe78"; g.beginPath(); g.arc(540, 820, 200, 0, Math.PI * 2); g.fill();
-  g.fillStyle = "#465a8c"; g.fillRect(300, 1000, 480, 500);
+  g.fillStyle = "#3f6b80"; g.fillRect(300, 1000, 480, 500);
   const label = (text, y, size) => {
-    g.font = `bold ${size}px system-ui, sans-serif`;
+    g.font = `600 ${size}px "Instrument Sans", system-ui, sans-serif`;
     const w = g.measureText(text).width;
     g.fillStyle = "#000"; g.beginPath();
     if (g.roundRect) g.roundRect(540 - w / 2 - 28, y - 16, w + 56, size + 38, 18); else g.rect(540 - w / 2 - 28, y - 16, w + 56, size + 38);
@@ -378,7 +576,7 @@ $("save").addEventListener("click", () => {
   const out = document.createElement("canvas");
   out.width = canvases.length * w + (canvases.length - 1) * gap; out.height = h;
   const g = out.getContext("2d");
-  g.fillStyle = "#181818"; g.fillRect(0, 0, out.width, out.height);
+  g.fillStyle = "#0b2427"; g.fillRect(0, 0, out.width, out.height);
   canvases.forEach((c, i) => g.drawImage(c, i * (w + gap), 0));
   out.toBlob((blob) => {
     const a = document.createElement("a");
@@ -387,22 +585,27 @@ $("save").addEventListener("click", () => {
   });
 });
 
-const tbody = document.querySelector("#sources tbody");
-for (const [key, z] of Object.entries(ZONES)) {
-  const tr = document.createElement("tr");
-  const area = bandsFor(key, 1080, 1920).map(([t, b, l, r]) => `y ${Math.round(t)}-${Math.round(b)}, x ${Math.round(l)}-${Math.round(r)}`).join("; then ");
-  const name = document.createElement("td"); name.textContent = z.label;
-  const nums = document.createElement("td"); nums.className = "nums"; nums.textContent = area;
-  const src = document.createElement("td");
-  const link = document.createElement("a"); link.href = z.source; link.textContent = new URL(z.source).hostname.replace(/^www\./, "");
-  src.append(link);
-  tr.append(name, nums, src);
-  tbody.append(tr);
+function fillSources() {
+  const tbody = document.querySelector("#sources tbody");
+  tbody.innerHTML = "";
+  for (const [key, z] of Object.entries(ZONES)) {
+    const tr = document.createElement("tr");
+    const area = bandsFor(key, 1080, 1920).map(([tp, b, l, r]) => `y ${Math.round(tp)}-${Math.round(b)}, x ${Math.round(l)}-${Math.round(r)}`).join(t("then"));
+    const name = document.createElement("td"); name.textContent = z.label;
+    const nums = document.createElement("td"); nums.className = "nums"; nums.textContent = area;
+    const src = document.createElement("td");
+    const link = document.createElement("a"); link.className = "link"; link.href = z.source; link.textContent = new URL(z.source).hostname.replace(/^www\./, "");
+    src.append(link);
+    tr.append(name, nums, src);
+    tbody.append(tr);
+  }
 }
 
 // Open on a worked example: a caption placed where many shorts put it, already judged.
 state.box = { left: 190, top: 1314, right: 890, bottom: 1410 };
-useSource(sampleFrame(), 1080, 1920, "Sample frame");
+state.src = sampleFrame(); state.w = 1080; state.h = 1920;
+applyLang(pickLang());
+document.fonts && document.fonts.ready.then(() => { if (!state.named) { state.src = sampleFrame(); redraw(); } });
 window.addEventListener("resize", () => { clearTimeout(window.__rz); window.__rz = setTimeout(render, 150); });
 </script>
 </body>
