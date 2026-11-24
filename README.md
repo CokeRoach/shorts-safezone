@@ -2,7 +2,7 @@
 
 See what YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video: the like and comment buttons, the channel name, the caption. The zones are measured from each platform's own templates, and every number says where it came from.
 
-![A 9:16 frame checked against YouTube Shorts, TikTok and Instagram Reels. The title at the top and the caption near the bottom fall in the covered (red) area on all three.](docs/example.png)
+![A 9:16 frame checked against YouTube Shorts, TikTok and Instagram Reels. The title at the top and the caption near the bottom fall in the covered (red) area on all three.](https://raw.githubusercontent.com/CokeRoach/shorts-safezone/main/docs/example.png)
 
 *A made-up frame. The title at the top and the caption near the bottom are both covered on every platform. TikTok's zone has a step where its buttons sit on the right.*
 
