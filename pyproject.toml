@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shorts-safezone"
+dynamic = ["version"]
+description = "See what YouTube Shorts, TikTok and Instagram Reels cover on a 9:16 video, with zones measured from each platform's own templates."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "CokeRoach" }]
+requires-python = ">=3.10"
+dependencies = ["pillow>=10"]
+keywords = ["youtube shorts", "tiktok", "instagram reels", "safe zone", "safe area", "vertical video", "captions"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Multimedia :: Graphics",
+]
+
+[project.urls]
+Homepage = "https://github.com/CokeRoach/shorts-safezone"
+Issues = "https://github.com/CokeRoach/shorts-safezone/issues"
+
+[project.scripts]
+shorts-safezone = "shorts_safezone.__main__:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.hatch.version]
+path = "src/shorts_safezone/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shorts_safezone"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
